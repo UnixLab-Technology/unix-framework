@@ -1,0 +1,35 @@
+{
+  "name": "unix-framework",
+  "version": "0.0.1",
+  "description": "A simple and faster framework for discord applications development.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnixLab-Technology/unix-framework.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "framework",
+    "unix"
+  ],
+  "author": "UnixLab <unixlab.technology@gmail.com> (https://github.com/UnixLab-Technology)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/UnixLab-Technology/unix-framework/issues"
+  },
+  "homepage": "https://github.com/UnixLab-Technology/unix-framework#readme",
+  "private": false,
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.1.0",
+    "eslint": "^8.51.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  }
+}
