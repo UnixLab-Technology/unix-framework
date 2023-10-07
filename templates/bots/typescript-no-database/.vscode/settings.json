@@ -1,0 +1,20 @@
+{
+    "symbols.folders.associations": {
+        "commands": "folder-sky-code",
+        "command": "folder-sky-code",
+        "events": "folder-red-code",
+        "event": "folder-red-code",
+        "functions": "folder-purple-code",
+        "function": "folder-purple-code",
+        "structs": "folder-green-code",
+        "struct": "folder-green-code",
+        "classes": "folder-yellow-code",
+        "classe": "folder-yellow-code",
+        "controllers": "folder-yellow-code",
+        "controller": "folder-yellow-code",
+    },
+    "symbols.files.associations": {
+        "*.d.ts": "dts",
+        "package-lock.json": "npm"
+    }
+}

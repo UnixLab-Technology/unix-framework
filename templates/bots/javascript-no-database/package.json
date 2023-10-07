@@ -1,0 +1,24 @@
+{
+  "name": "name-of-project",
+  "description": "Discord bot base made with typescript on discord.js lib version 14.x",
+  "version": "0.0.1",
+  "main": "/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch ."
+  },
+  "keywords": [
+    "bot",
+    "discord"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "latest",
+    "eslint": "latest"
+  },
+  "dependencies": {
+    "discord.js": "latest",
+    "dotenv": "latest",
+    "unix-functions": "latest"
+  }
+}
