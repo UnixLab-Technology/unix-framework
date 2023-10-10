@@ -3,7 +3,7 @@ import clack from '@clack/prompts'
 import validateNpmPackageName from 'validate-npm-package-name'
 import fs from 'fs-extra'
 import { readJson } from './file'
-import { PackageJson } from '../types/package'
+import { PackageJson } from '@/types/package'
 import { style } from '@opentf/cli-styles'
 
 const packageJson = readJson<PackageJson>(
@@ -28,7 +28,10 @@ export function checkCancel<T>(result: T | symbol): T {
   if (clack.isCancel(result)) {
     clack.cancel(
       style(
-        '$hex(#a3abc4){http://github.com/UnixLab-Technology/unix-framework}',
+        `
+        $hex(#4169E1){Obrigado por usar o Unix Framework!}
+        $hex(#a3abc4){http://github.com/UnixLab-Technology/unix-framework}
+        `,
       ),
     )
     process.exit(0)

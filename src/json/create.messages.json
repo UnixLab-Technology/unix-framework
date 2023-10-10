@@ -1,0 +1,9 @@
+{
+    "welcome": "$hex(#00B191){ 🐧 Bem vindo ao Unix Framework }",
+    "outdated": "Uma versão mais recente do framework está disponível! var(version) \nUse npx unix@latest create",
+    "select": "Selecione uma das opções abaixo",
+    "options": {
+        "discodbot": "Aplicativo: Bot"
+    },
+    "leave": "Você saiu."
+}
