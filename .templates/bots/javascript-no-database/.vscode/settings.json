@@ -16,5 +16,19 @@
     "symbols.files.associations": {
         "*.d.ts": "dts",
         "package-lock.json": "npm"
+    },
+    "[javascript]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.organizeImports": "always"
+        }
+    },
+    "[typescript]": {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.organizeImports": "always"
+        }
     }
 }

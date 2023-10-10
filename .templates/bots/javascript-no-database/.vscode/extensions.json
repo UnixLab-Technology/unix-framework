@@ -3,6 +3,7 @@
     "miguelsolorio.min-theme",
     "miguelsolorio.symbols",
     "miguelsolorio.fluent-icons",
-    "ueriic.discordjsv14"
+    "ueriic.discordjsv14",
+    "dbaeumer.vscode-eslint"
   ]
 }

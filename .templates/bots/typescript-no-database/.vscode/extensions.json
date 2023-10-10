@@ -3,6 +3,7 @@
     "miguelsolorio.min-theme",
     "miguelsolorio.symbols",
     "miguelsolorio.fluent-icons",
-    "rinckodev.discordjsv14ts"
+    "rinckodev.discordjsv14ts",
+    "dbaeumer.vscode-eslint"
   ]
 }
