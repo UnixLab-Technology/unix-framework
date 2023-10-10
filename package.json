@@ -6,6 +6,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
+    "test": "node ./dist/index.js create",
     "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
     "build": "tsup"
   },

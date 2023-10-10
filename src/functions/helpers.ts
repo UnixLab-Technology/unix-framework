@@ -1,13 +1,13 @@
 import path from 'path'
-import clack from '@clack/prompts'
 import validateNpmPackageName from 'validate-npm-package-name'
 import fs from 'fs-extra'
 import { readJson } from './file'
 import { PackageJson } from '@/types/package'
 import { style } from '@opentf/cli-styles'
+import { cancel, isCancel } from '@clack/prompts'
 
 const packageJson = readJson<PackageJson>(
-  path.join(__dirname, '../../package.json'),
+  path.join(process.cwd(), 'package.json'),
 )
 
 export async function getLastestVersion(): Promise<string | null> {
@@ -25,8 +25,8 @@ export function isOutdated(current: string, latest: string) {
 }
 
 export function checkCancel<T>(result: T | symbol): T {
-  if (clack.isCancel(result)) {
-    clack.cancel(
+  if (isCancel(result)) {
+    cancel(
       style(
         `
         $hex(#4169E1){Obrigado por usar o Unix Framework!}

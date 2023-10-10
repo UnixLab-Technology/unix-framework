@@ -1,10 +1,10 @@
 import path from 'path'
 import fs from 'fs-extra'
 import spawn from 'cross-spawn'
-import clack from '@clack/prompts'
 import messages from '@/json/bot.messages.json'
 import { style } from '@opentf/cli-styles'
 import { brBuilder } from '@magicyan/core'
+import { text, select, note, outro, spinner } from '@clack/prompts'
 import {
   checkCancel,
   editJson,
@@ -16,7 +16,7 @@ import { ProgramProperties } from '@/types/program'
 export async function bot(properties: ProgramProperties) {
   const project = {
     path: checkCancel(
-      await clack.text({
+      await text({
         message: style(messages.projectName.message),
         placeholder: style(messages.projectName.placeholder),
         validate(input) {
@@ -33,7 +33,7 @@ export async function bot(properties: ProgramProperties) {
       }),
     ),
     technology: checkCancel(
-      await clack.select({
+      await select({
         message: style(messages.technology),
         options: [
           {
@@ -49,7 +49,7 @@ export async function bot(properties: ProgramProperties) {
       }),
     ),
     database: checkCancel(
-      await clack.select({
+      await select({
         message: messages.database,
         options: [
           {
@@ -61,7 +61,7 @@ export async function bot(properties: ProgramProperties) {
       }),
     ),
     packageManager: checkCancel(
-      await clack.select({
+      await select({
         message: messages.packageManager,
         options: [
           {
@@ -126,13 +126,13 @@ export async function bot(properties: ProgramProperties) {
     message.push(`◌ ${project.packageManager} run dev`)
     message.push(messages.readme.message)
 
-    clack.note(style(brBuilder(...message)), style(messages.readme.title))
+    note(style(brBuilder(...message)), style(messages.readme.title))
 
-    clack.outro(style(messages.final))
+    outro(style(messages.final))
   }
 
-  const spinner = clack.spinner()
-  spinner.start(messages.installing)
+  const spin = spinner()
+  spin.start(messages.installing)
   const child = spawn(project.packageManager, ['install'], {
     stdio: 'ignore',
     cwd: properties.destinationPath,
@@ -142,13 +142,13 @@ export async function bot(properties: ProgramProperties) {
   const emojis = ['😐', '🙂', '😐', '🥱', '😴', '😑']
   const timer = setInterval(() => {
     if (loop >= emojis.length) loop = 0
-    spinner.message(`${emojis[loop]} ${messages.installing}`)
+    spin.message(`${emojis[loop]} ${messages.installing}`)
     loop++
   }, 3000)
 
   child.on('exit', () => {
     clearInterval(timer)
-    spinner.stop('😃 ' + messages.installed)
+    spin.stop('😃 ' + messages.installed)
     done()
   })
 }
