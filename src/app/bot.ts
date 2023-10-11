@@ -1,17 +1,12 @@
 import path from 'path'
 import fs from 'fs-extra'
 import spawn from 'cross-spawn'
-import messages from '@/json/bot.messages.json'
+import messages from '../json/bot.messages.json'
 import { style } from '@opentf/cli-styles'
 import { brBuilder } from '@magicyan/core'
 import { text, select, note, outro, spinner } from '@clack/prompts'
-import {
-  checkCancel,
-  editJson,
-  getNpmName,
-  validateNpmName,
-} from '@/functions/helpers'
-import { ProgramProperties } from '@/types/program'
+import { checkCancel, editJson } from '../functions/helpers'
+import { ProgramProperties } from '../types/program'
 
 export async function bot(properties: ProgramProperties) {
   const project = {
@@ -19,7 +14,7 @@ export async function bot(properties: ProgramProperties) {
       await text({
         message: style(messages.projectName.message),
         placeholder: style(messages.projectName.placeholder),
-        validate(input) {
+        /* validate(input) {
           const npmName = getNpmName(input)
           const validation = validateNpmName(npmName)
           if (!input) {
@@ -29,7 +24,7 @@ export async function bot(properties: ProgramProperties) {
             return
           }
           return style(`$r{${brBuilder(...(validation.problems || []))}}`)
-        },
+        }, */
       }),
     ),
     technology: checkCancel(

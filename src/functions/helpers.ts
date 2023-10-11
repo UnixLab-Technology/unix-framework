@@ -1,8 +1,7 @@
 import path from 'path'
-import validateNpmPackageName from 'validate-npm-package-name'
 import fs from 'fs-extra'
 import { readJson } from './file'
-import { PackageJson } from '@/types/package'
+import { PackageJson } from '../types/package'
 import { style } from '@opentf/cli-styles'
 import { cancel, isCancel } from '@clack/prompts'
 
@@ -71,7 +70,7 @@ export async function editJson({
   await fs.writeFile(path, JSON.stringify(packageJson, null, 2))
 }
 
-export function validateNpmName(name: string): {
+/* export function validateNpmName(name: string): {
   valid: boolean
   problems?: string[]
 } {
@@ -83,7 +82,7 @@ export function validateNpmName(name: string): {
     valid: false,
     problems: [...(errors || []), ...(warnings || [])],
   }
-}
+} */
 
 export function getNpmName(pathName: string) {
   return path.basename(path.resolve(pathName))

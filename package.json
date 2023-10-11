@@ -1,14 +1,13 @@
 {
   "name": "unix-framework",
-  "version": "0.1.5",
+  "version": "0.1.21",
   "description": "A simple and faster framework for discord applications development.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
   "scripts": {
-    "test": "node ./dist/index.js create",
-    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
-    "build": "tsup"
+    "test": "node .",
+    "dev": "ts-node-dev --transpiler sucrase/register src/index.ts",
+    "build": "rm -rf dist && tsc"
   },
   "repository": {
     "type": "git",
@@ -33,9 +32,8 @@
     "@types/fs-extra": "^11.0.2",
     "@types/validate-npm-package-name": "^4.0.0",
     "eslint": "^8.51.0",
+    "sucrase": "^3.34.0",
     "ts-node-dev": "^2.0.0",
-    "tsconfig-paths": "^4.2.0",
-    "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
@@ -45,6 +43,6 @@
     "commander": "^11.0.0",
     "cross-spawn": "^7.0.3",
     "fs-extra": "^11.1.1",
-    "validate-npm-package-name": "^5.0.0"
+    "tslib": "^2.6.2"
   }
 }

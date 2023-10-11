@@ -1,13 +1,17 @@
-import messages from '@/json/create.messages.json'
-import { Argument, Command, Option } from 'commander'
+import messages from '../json/create.messages.json'
+import { Command, Option } from 'commander'
 import { style } from '@opentf/cli-styles'
 import { join } from 'path'
 import { intro, log, outro, select } from '@clack/prompts'
-import { bot } from '@/app/bot'
-import { readJson } from '@/functions/file'
-import { PackageJson } from '@/types/package'
-import { checkCancel, getLastestVersion, isOutdated } from '@/functions/helpers'
-import { ProgramProperties } from '@/types/program'
+import { bot } from '../app/bot'
+import { readJson } from '../functions/file'
+import { PackageJson } from '../types/package'
+import {
+  checkCancel,
+  getLastestVersion,
+  isOutdated,
+} from '../functions/helpers'
+import { ProgramProperties } from '../types/program'
 
 export async function create() {
   const packageJson = readJson<PackageJson>(join(process.cwd(), 'package.json'))
@@ -16,7 +20,7 @@ export async function create() {
   }
   new Command(packageJson.name)
     .version(packageJson.version)
-    .addArgument(new Argument('create', 'Create a new unix project.'))
+    .addCommand(new Command('create').aliases(['c', 'criar']))
     .addOption(
       new Option('-l, --lang <language>', 'Select program language').choices([
         'pt_br',
@@ -24,7 +28,6 @@ export async function create() {
       ]),
     )
     .allowUnknownOption()
-    .allowExcessArguments()
     .parse(process.argv)
 
   intro(
